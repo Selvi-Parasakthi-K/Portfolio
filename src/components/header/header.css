@@ -1,0 +1,305 @@
+/* ─────────────────────────────────────────
+   header.css  —  Portfolio Header
+───────────────────────────────────────── */
+
+/* ── Variables (reuse your existing palette) ── */
+:root {
+  --hdr-height: 68px;
+  --hdr-bg: rgba(5, 8, 20, 0);
+  --hdr-bg-scrolled: rgba(5, 8, 20, 0.85);
+  --hdr-border: rgba(108, 242, 194, 0.12);
+  --hdr-accent: #6cf2c2; /* teal glow */
+  --hdr-accent-dim: rgba(108, 242, 194, 0.55);
+  --hdr-text: rgba(220, 230, 255, 0.82);
+  --hdr-text-hover: #ffffff;
+  --hdr-logo-color: #ffffff;
+  --hdr-bracket-color: #6cf2c2;
+  --hdr-transition: 0.3s ease;
+}
+
+/* ── Base ── */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--hdr-height);
+  background: var(--hdr-bg);
+  border-bottom: 1px solid transparent;
+  transition:
+    background var(--hdr-transition),
+    border-color var(--hdr-transition),
+    backdrop-filter var(--hdr-transition);
+}
+
+.header--scrolled {
+  background: var(--hdr-bg-scrolled);
+  border-bottom-color: var(--hdr-border);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+}
+
+/* ── Inner layout ── */
+.header__inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* ── Logo ── */
+.header__logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--hdr-logo-color);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--hdr-transition);
+  flex-shrink: 0;
+}
+.header__logo:hover {
+  opacity: 0.85;
+}
+
+.header__logo-bracket {
+  color: var(--hdr-bracket-color);
+  font-weight: 700;
+  margin: 0 1px;
+}
+
+/* ── Desktop nav ── */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.header__nav-link {
+  position: relative;
+  display: inline-block;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--hdr-text);
+  text-decoration: none;
+  border-radius: 8px;
+  transition:
+    color var(--hdr-transition),
+    background var(--hdr-transition);
+  overflow: hidden;
+}
+
+/* Underline slide-in */
+.header__nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--hdr-accent);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.28s ease;
+}
+
+.header__nav-link:hover {
+  color: var(--hdr-text-hover);
+  background: rgba(108, 242, 194, 0.06);
+}
+.header__nav-link:hover::after,
+.header__nav-link--active::after {
+  width: calc(100% - 1.7rem);
+}
+
+.header__nav-link--active {
+  color: var(--hdr-accent);
+}
+
+/* Active dot indicator */
+.header__nav-link-dot {
+  display: none;
+}
+
+/* ── Resume CTA button ── */
+.header__cta {
+  margin-left: 1rem;
+  padding: 0.45rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--hdr-accent);
+  border: 1.5px solid var(--hdr-accent-dim);
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background var(--hdr-transition),
+    color var(--hdr-transition),
+    box-shadow var(--hdr-transition),
+    border-color var(--hdr-transition);
+}
+.header__cta:hover {
+  background: var(--hdr-accent);
+  color: #020c18;
+  border-color: var(--hdr-accent);
+  box-shadow: 0 0 18px rgba(108, 242, 194, 0.35);
+}
+
+/* ── Hamburger (hidden on desktop) ── */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1.5px solid rgba(108, 242, 194, 0.25);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color var(--hdr-transition);
+}
+.header__hamburger:hover {
+  border-color: var(--hdr-accent);
+}
+
+.header__hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--hdr-accent);
+  border-radius: 2px;
+  transform-origin: center;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    width 0.3s ease;
+}
+
+/* Animate to × */
+.header__hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header__hamburger--open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.header__hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ── */
+.header__drawer {
+  position: fixed;
+  top: var(--hdr-height);
+  left: 0;
+  right: 0;
+  background: rgba(5, 8, 20, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--hdr-border);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+}
+.header__drawer--open {
+  max-height: 420px;
+}
+
+.header__drawer-list {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.header__drawer-link {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--hdr-text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(108, 242, 194, 0.07);
+  transition:
+    color var(--hdr-transition),
+    padding-left var(--hdr-transition);
+}
+.header__drawer-link:hover,
+.header__drawer-link--active {
+  color: var(--hdr-accent);
+  padding-left: 0.85rem;
+}
+
+.header__drawer-cta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--hdr-accent);
+  border: 1.5px solid var(--hdr-accent-dim);
+  border-radius: 8px;
+  text-decoration: none;
+  transition:
+    background var(--hdr-transition),
+    color var(--hdr-transition);
+}
+.header__drawer-cta:hover {
+  background: var(--hdr-accent);
+  color: #020c18;
+}
+
+/* ── Responsive breakpoints ── */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .header__inner {
+    padding: 0 1.5rem;
+  }
+  .header__nav-link {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.82rem;
+  }
+  .header__cta {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile — hide desktop nav, show hamburger */
+@media (max-width: 640px) {
+  .header__nav {
+    display: none;
+  }
+  .header__hamburger {
+    display: flex;
+  }
+  .header__inner {
+    padding: 0 1.25rem;
+  }
+}
