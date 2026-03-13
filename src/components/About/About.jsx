@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import "./about.css";
 
 const stats = [
-  { number: "4+", label: "Years Exp" },
-  { number: "50+", label: "Projects" },
-  { number: "100%", label: "Satisfaction" },
+  { number: "1+", label: "Years Experience" },
+  { number: "10+", label: "Projects" },
+  { number: "100%", label: "Commitment" },
 ];
 
 const traits = [
@@ -43,21 +43,28 @@ export default function About() {
           {/* ── Left: bio + stats ── */}
           <motion.div className="about__bio" {...fadeUp(0.1)}>
             <p>
-              Hi! I'm <strong>Selvi</strong>, a full-stack developer with{" "}
-              <span className="about__highlight">4+ years of experience</span>{" "}
-              building scalable web applications. I specialise in React,
-              Node.js, and cloud-native architectures that are fast, reliable,
-              and maintainable.
+              Hi! I'm <strong>Selvi</strong>, a passionate Frontend Developer
+              experienced in building modern and responsive web applications. I
+              work mainly with
+              <span className="about__highlight">
+                {" "}
+                React, Redux, Tailwind CSS, and Bootstrap{" "}
+              </span>
+              to create scalable and user-friendly interfaces.
             </p>
+
             <p>
-              I love turning complex problems into simple, elegant solutions.
-              Whether it's a pixel-perfect UI, a high-performance API, or an
-              AI-powered feature — I care about every layer of the stack.
+              I enjoy transforming ideas into interactive digital experiences by
+              writing clean and maintainable code. I have also worked with
+              technologies like Shopify, Strapi CMS, and Astro while building
+              dynamic websites and content-driven applications.
             </p>
+
             <p>
-              When I'm not coding I'm exploring new tech, contributing to open
-              source, or writing about what I've learned on{" "}
-              <strong>Dev.to</strong>.
+              I’m always eager to learn new technologies and improve my
+              development skills. I enjoy solving real-world problems through
+              code and collaborating with teams to deliver efficient and
+              high-quality web solutions.
             </p>
 
             {/* Stats */}

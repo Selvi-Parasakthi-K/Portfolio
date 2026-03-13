@@ -3,44 +3,36 @@ import "./experience.css";
 
 const experiences = [
   {
-    role: "Senior Full Stack Developer",
-    company: "TechCorp Solutions · Full-time",
-    period: "2022 – Present",
+    role: "Junior Software Developer",
+    company: "Peninsular Research Operations",
+    period: "2024 – Present",
     description:
-      "Led development of a SaaS platform serving 50k+ users. Architected microservices with Node.js and NestJS, built React dashboards, and reduced API response times by 40%.",
-    tags: ["React", "NestJS", "PostgreSQL", "Docker", "AWS"],
+      "Developing interactive web applications and gamification platforms using React. Worked on CMS integrations with Strapi and built responsive UI components while improving user engagement and performance.",
+    tags: ["React", "Angular", "NodeJS", "MongoDB", "Typescript"],
   },
   {
-    role: "Frontend Developer",
-    company: "Pixel Studio · Full-time",
-    period: "2020 – 2022",
+    role: "Frontend Developer Intern",
+    company: "Linsible Technologies",
+    period: "2022 – 2023",
     description:
-      "Built and maintained 10+ client web apps. Migrated legacy jQuery codebases to React, implemented CI/CD pipelines, and improved Lighthouse scores from 60 to 95+.",
-    tags: ["React", "TypeScript", "Tailwind", "CI/CD", "Firebase"],
-  },
-  {
-    role: "Junior Web Developer",
-    company: "StartupX · Internship → Full-time",
-    period: "2019 – 2020",
-    description:
-      "Developed REST APIs with Express and MongoDB, built responsive UIs, and collaborated in an agile team shipping weekly releases.",
-    tags: ["Node.js", "Express", "MongoDB", "Vue", "Git"],
+      "Worked as a Frontend Developer Intern building responsive user interfaces using React and Redux. Designed reusable components and implemented modern UI styling using Tailwind CSS and Bootstrap.",
+    tags: ["React", "Redux", "Tailwind", "Bootstrap", "Git"],
   },
 ];
 
 const education = [
   {
     icon: "🎓",
-    degree: "B.E. Computer Science & Engineering",
-    school: "Anna University, Chennai",
-    year: "2015 – 2019",
+    degree: "B.Tech. Information Technology",
+    school: "SSN College of Engineering",
+    year: "2020 – 2024",
     grade: "8.4 CGPA",
   },
   {
     icon: "📜",
-    degree: "AWS Certified Developer – Associate",
-    school: "Amazon Web Services",
-    year: "2023",
+    degree: "Microsoft Certified: Azure AI Engineer Associate",
+    school: "Microsoft",
+    year: "2025",
     grade: "Certified",
   },
   {
