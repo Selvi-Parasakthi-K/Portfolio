@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionParticles from "../common/Sectionparticles";
 import "./experience.css";
 
 const experiences = [
@@ -8,7 +9,7 @@ const experiences = [
     period: "2024 – Present",
     description:
       "Developing interactive web applications and gamification platforms using React. Worked on CMS integrations with Strapi and built responsive UI components while improving user engagement and performance.",
-    tags: ["React", "Angular", "NodeJS", "MongoDB", "Typescript"],
+    tags: ["React", "Angular", "NodeJS", "MongoDB", "TypeScript"],
   },
   {
     role: "Frontend Developer Intern",
@@ -54,6 +55,8 @@ const fadeUp = (delay = 0) => ({
 export default function Experience() {
   return (
     <section className="experience" id="experience">
+      <SectionParticles />
+
       <div className="experience__inner">
         <motion.div {...fadeUp(0)}>
           <span className="section-label">My Journey</span>
@@ -67,7 +70,6 @@ export default function Experience() {
         </motion.div>
 
         <div className="experience__layout">
-          {/* ── Timeline ── */}
           <div>
             <p className="experience__col-title">Work History</p>
             <div className="timeline">
@@ -102,10 +104,9 @@ export default function Experience() {
             </div>
           </div>
 
-          {/* ── Education ── */}
           <div>
             <motion.p className="experience__col-title" {...fadeUp(0.1)}>
-              Education & Certifications
+              Education &amp; Certifications
             </motion.p>
             <div className="edu-list">
               {education.map((edu, i) => (

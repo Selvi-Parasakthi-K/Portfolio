@@ -1,5 +1,17 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  SiReact,
+  SiAngular,
+  SiAstro,
+  SiNodedotjs,
+  SiMongodb,
+  SiDocker,
+  SiTailwindcss,
+  SiJavascript,
+} from "react-icons/si";
+
+import { TbSql } from "react-icons/tb";
 
 const PLANET_SIZE = 65;
 
@@ -7,38 +19,38 @@ const PLANET_SIZE = 65;
 const rings = [
   {
     skills: [
-      { name: "React", icon: "⚛️", color: "#61DAFB" },
-      { name: "TypeScript", icon: "🔷", color: "#3178C6" },
-      { name: "Vue", icon: "🟢", color: "#42B883" },
+      { name: "React", icon: <SiReact />, color: "#61DAFB" },
+      { name: "Angular", icon: <SiAngular />, color: "#DD0031" },
+      { name: "Astro", icon: <SiAstro />, color: "#FF5D01" },
     ],
     duration: "10s",
     radius: 140,
     clockwise: true,
-    ringColor: "rgba(108, 242, 194, 0.55)", // teal
+    ringColor: "rgba(108, 242, 194, 0.55)",
     ringGlow: "rgba(108, 242, 194, 0.12)",
   },
   {
     skills: [
-      { name: "Node.js", icon: "🟩", color: "#68A063" },
-      { name: "NestJS", icon: "🐦", color: "#E0234E" },
-      { name: "Express", icon: "🚀", color: "#c0c0c0" },
+      { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
+      { name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
+      { name: "SQL", icon: <TbSql />, color: "#4479A1" },
     ],
     duration: "18s",
     radius: 215,
     clockwise: false,
-    ringColor: "rgba(255, 107, 157, 0.55)", // pink
+    ringColor: "rgba(255, 107, 157, 0.55)",
     ringGlow: "rgba(255, 107, 157, 0.1)",
   },
   {
     skills: [
-      { name: "MongoDB", icon: "🍃", color: "#47A248" },
-      { name: "Docker", icon: "🐳", color: "#2496ED" },
-      { name: "PostgreSQL", icon: "🐘", color: "#336791" },
+      { name: "Docker", icon: <SiDocker />, color: "#2496ED" },
+      { name: "Tailwind", icon: <SiTailwindcss />, color: "#38BDF8" },
+      { name: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
     ],
     duration: "28s",
     radius: 290,
     clockwise: true,
-    ringColor: "rgba(255, 165, 50, 0.55)", // amber
+    ringColor: "rgba(255, 165, 50, 0.55)",
     ringGlow: "rgba(255, 165, 50, 0.1)",
   },
 ];
@@ -255,7 +267,8 @@ export default function SkillsOrbit() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "32px",
+                    fontSize: "30px",
+                    color: skill.color,
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",
                     boxShadow: isHovered

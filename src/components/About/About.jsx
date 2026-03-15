@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import SectionParticles from "../common/Sectionparticles";
 import "./about.css";
 
 const stats = [
-  { number: "1+", label: "Years Experience" },
+  { number: "2+", label: "Years Experience" },
   { number: "10+", label: "Projects" },
   { number: "100%", label: "Commitment" },
 ];
@@ -26,8 +27,9 @@ const fadeUp = (delay = 0) => ({
 export default function About() {
   return (
     <section className="about" id="about">
+      <SectionParticles />
+
       <div className="about__inner">
-        {/* Heading */}
         <motion.div {...fadeUp(0)}>
           <span className="section-label">Who I Am</span>
           <h2 className="section-heading">
@@ -40,7 +42,6 @@ export default function About() {
         </motion.div>
 
         <div className="about__grid">
-          {/* ── Left: bio + stats ── */}
           <motion.div className="about__bio" {...fadeUp(0.1)}>
             <p>
               Hi! I'm <strong>Selvi</strong>, a passionate Frontend Developer
@@ -52,22 +53,19 @@ export default function About() {
               </span>
               to create scalable and user-friendly interfaces.
             </p>
-
             <p>
               I enjoy transforming ideas into interactive digital experiences by
               writing clean and maintainable code. I have also worked with
               technologies like Shopify, Strapi CMS, and Astro while building
               dynamic websites and content-driven applications.
             </p>
-
             <p>
-              I’m always eager to learn new technologies and improve my
+              I'm always eager to learn new technologies and improve my
               development skills. I enjoy solving real-world problems through
               code and collaborating with teams to deliver efficient and
               high-quality web solutions.
             </p>
 
-            {/* Stats */}
             <div className="about__stats">
               {stats.map(({ number, label }, i) => (
                 <motion.div
@@ -82,14 +80,11 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* ── Right: avatar + traits ── */}
           <motion.div className="about__right" {...fadeUp(0.15)}>
             <div className="about__avatar-wrap">
-              {/* Replace src with your real photo path */}
               <div className="about__avatar-placeholder">👩‍💻</div>
               <span className="about__avatar-badge">Available for hire</span>
             </div>
-
             <div className="about__traits">
               {traits.map(({ icon, label }, i) => (
                 <motion.span

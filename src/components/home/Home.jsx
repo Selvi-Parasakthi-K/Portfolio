@@ -5,11 +5,11 @@ import SkillsOrbit from "./SkillsOrbit";
 import "./home.css";
 
 const roles = [
+  "Frontend Developer",
+  "React Developer",
   "Full Stack Developer",
-  "Frontend Specialist",
-  "Backend Engineer",
-  "AI Integration Expert",
-  "Cloud Solutions Architect",
+  "Software Engineer",
+  "Shopify Developer",
 ];
 
 const socials = [
@@ -130,9 +130,10 @@ export default function Home() {
               <span>Get In Touch</span>
               <span className="cta-arrow">→</span>
             </a>
-            <a href="#projects" className="cta-button secondary">
-              <span>View Projects</span>
-            </a>
+            {/* <a href="#projects" className="cta-button secondary">
+              <span>Get In Touch</span>
+              <span className="cta-arrow">→</span>
+            </a> */}
           </motion.div>
 
           <motion.div

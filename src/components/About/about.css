@@ -8,7 +8,7 @@
   --accent-dim: rgba(108, 242, 194, 0.35);
   --accent-glow: rgba(108, 242, 194, 0.12);
   --text: rgba(220, 230, 255, 0.88);
-  --text-dim: rgba(180, 195, 230, 0.58);
+  --text-dim: rgba(180, 195, 230, 0.8);
   --card-bg: rgba(10, 15, 35, 0.7);
   --card-border: rgba(108, 242, 194, 0.1);
   --page-max: 1200px;
@@ -20,7 +20,7 @@
 .about {
   position: relative;
   padding: var(--section-py) 0;
-  overflow: hidden;
+  overflow: clip; /* contains particles without breaking scroll */
 }
 
 /* Subtle top separator glow */
@@ -42,6 +42,8 @@
 
 /* ── Width wrapper ── */
 .about__inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--page-max);
   margin: 0 auto;
   padding: 0 var(--page-pad);
@@ -206,7 +208,7 @@
 /* Corner accent badge */
 .about__avatar-badge {
   position: absolute;
-  bottom: -10px;
+  top: -10px;
   right: -10px;
   background: var(--accent);
   color: #020c18;

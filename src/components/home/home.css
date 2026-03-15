@@ -6,7 +6,7 @@
   --home-accent: #6cf2c2;
   --home-accent-dim: rgba(108, 242, 194, 0.4);
   --home-text: rgba(220, 230, 255, 0.88);
-  --home-text-dim: rgba(180, 195, 230, 0.6);
+  --home-text-dim: rgba(180, 195, 230, 0.8);
   --hdr-height: 68px;
   --page-max-width: 1200px;
   --page-padding: 2rem;
@@ -119,10 +119,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.68rem 1.55rem;
+  padding: 0.5rem 1.55rem;
   border-radius: 10px;
   font-size: 0.94rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.03em;
   text-decoration: none;
   transition: all 0.22s ease;
@@ -164,7 +164,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-top: 0.1rem;
+  margin-top: 0.5rem;
 }
 
 .social-link {

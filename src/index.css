@@ -1,12 +1,56 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ─────────────────────────────────────────
+   global.css  — paste into your index.css
+   or import in main.jsx / App.jsx
+───────────────────────────────────────── */
+
+/* 1. Smooth scroll for every anchor link (#about, #skills …) */
+html {
+  scroll-behavior: smooth;
 }
 
+/* 2. Body must NOT clip — this is the most common scroll-breaking bug */
+html,
 body {
-  background: #0b0b0f;
-  font-family: Inter, sans-serif;
-  color: white;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  /* Never set overflow:hidden on html or body — it kills scroll */
+  overflow-x: hidden; /* only block horizontal overflow */
+  overflow-y: auto; /* let the page scroll vertically */
+  min-height: 100%;
+  background: #020816; /* match your dark bg */
+  color: #fff;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. Every section stacks naturally in normal flow */
+section {
+  position: relative; /* needed for absolute canvas inside */
+  /* Do NOT set overflow:hidden on sections — it clips the canvas */
+}
+
+/* 4. Scroll offset so fixed header doesn't cover section headings
+   when navigating via anchor links                               */
+section[id] {
+  scroll-margin-top: 15px; /* matches --hdr-height */
+}
+
+/* 5. Particles canvas sits behind all section content */
+.particles-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 6. Every section's inner content wrapper floats above canvas */
+.about__inner,
+.skills__inner,
+.experience__inner,
+.contact__inner,
+.home__inner {
+  position: relative;
+  z-index: 1;
 }

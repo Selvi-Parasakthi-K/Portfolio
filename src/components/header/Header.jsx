@@ -72,9 +72,8 @@ export default function Header() {
 
           {/* CTA button */}
           <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
+            href="/Selvi-Parasakthi-Frontend-Developer.pdf"
+            download
             className="header__cta"
           >
             Resume
@@ -115,9 +114,8 @@ export default function Header() {
           })}
           <li>
             <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
+              href="/Selvi-Parasakthi-Frontend-Developer.pdf"
+              download
               className="header__drawer-cta"
               onClick={handleNavClick}
             >

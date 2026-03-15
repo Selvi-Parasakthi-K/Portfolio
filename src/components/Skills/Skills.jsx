@@ -1,6 +1,29 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import SectionParticles from "../common/Sectionparticles";
 import "./skills.css";
+import {
+  SiHtml5,
+  SiSass,
+  SiTailwindcss,
+  SiBootstrap,
+  SiReact,
+  SiAngular,
+  SiRedux,
+  SiAstro,
+  SiNodedotjs,
+  SiExpress,
+  SiStrapi,
+  SiMongodb,
+  SiJavascript,
+  SiTypescript,
+} from "react-icons/si";
+import { MdCss } from "react-icons/md";
+import { GrGraphQl } from "react-icons/gr";
+
+import { TbApi } from "react-icons/tb";
+import { DiDotnet } from "react-icons/di";
+import { FaDatabase } from "react-icons/fa";
 
 const categories = [
   {
@@ -9,49 +32,85 @@ const categories = [
     icon: "🎨",
     skills: [
       {
-        name: "React",
-        icon: "⚛️",
+        name: "HTML",
+        icon: <SiHtml5 />,
         level: "Expert",
         pct: 95,
-        color: "rgba(97,218,251,0.35)",
+        color: "#e34c26",
+      },
+      {
+        name: "CSS",
+        icon: <MdCss />,
+        level: "Expert",
+        pct: 95,
+        color: "#264de4",
+      },
+      {
+        name: "SCSS",
+        icon: <SiSass />,
+        level: "Advanced",
+        pct: 85,
+        color: "#cc6699",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: <SiTailwindcss />,
+        level: "Expert",
+        pct: 92,
+        color: "#38bdf8",
+      },
+      {
+        name: "Bootstrap",
+        icon: <SiBootstrap />,
+        level: "Expert",
+        pct: 90,
+        color: "#7952b3",
+      },
+      {
+        name: "JavaScript",
+        icon: <SiJavascript />,
+        level: "Expert",
+        pct: 90,
+        color: "#f7df1e",
       },
       {
         name: "TypeScript",
-        icon: "🔷",
-        level: "Expert",
-        pct: 90,
-        color: "rgba(49,120,198,0.35)",
-      },
-      {
-        name: "Vue",
-        icon: "🟢",
-        level: "Advanced",
-        pct: 80,
-        color: "rgba(66,184,131,0.35)",
-      },
-      {
-        name: "Next.js",
-        icon: "▲",
+        icon: <SiTypescript />,
         level: "Advanced",
         pct: 85,
-        color: "rgba(200,200,200,0.25)",
+        color: "#3178c6",
       },
       {
-        name: "Tailwind",
-        icon: "🌊",
+        name: "React",
+        icon: <SiReact />,
         level: "Expert",
         pct: 92,
-        color: "rgba(56,189,248,0.3)",
+        color: "#61dafb",
       },
       {
-        name: "Framer",
-        icon: "🎭",
+        name: "Angular",
+        icon: <SiAngular />,
         level: "Proficient",
         pct: 75,
-        color: "rgba(180,100,255,0.3)",
+        color: "#dd0031",
+      },
+      {
+        name: "Redux",
+        icon: <SiRedux />,
+        level: "Advanced",
+        pct: 85,
+        color: "#764abc",
+      },
+      {
+        name: "Astro",
+        icon: <SiAstro />,
+        level: "Proficient",
+        pct: 70,
+        color: "#ff5a32",
       },
     ],
   },
+
   {
     id: "backend",
     label: "Backend",
@@ -59,48 +118,42 @@ const categories = [
     skills: [
       {
         name: "Node.js",
-        icon: "🟩",
-        level: "Expert",
-        pct: 92,
-        color: "rgba(104,160,99,0.35)",
-      },
-      {
-        name: "NestJS",
-        icon: "🐦",
+        icon: <SiNodedotjs />,
         level: "Advanced",
         pct: 82,
-        color: "rgba(224,35,78,0.3)",
+        color: "#339933",
       },
       {
-        name: "Express",
-        icon: "🚀",
+        name: "Express.js",
+        icon: <SiExpress />,
+        level: "Advanced",
+        pct: 80,
+        color: "#999999",
+      },
+      {
+        name: ".NET",
+        icon: <DiDotnet />,
+        level: "Proficient",
+        pct: 70,
+        color: "#512bd4",
+      },
+      {
+        name: "REST API",
+        icon: <TbApi />,
         level: "Expert",
         pct: 90,
-        color: "rgba(180,180,180,0.25)",
+        color: "#6cf2c2",
       },
       {
-        name: "GraphQL",
-        icon: "🔺",
-        level: "Advanced",
-        pct: 78,
-        color: "rgba(225,0,152,0.3)",
-      },
-      {
-        name: "REST APIs",
-        icon: "🔗",
-        level: "Expert",
-        pct: 95,
-        color: "rgba(108,242,194,0.3)",
-      },
-      {
-        name: "WebSockets",
-        icon: "📡",
+        name: "Strapi CMS",
+        icon: <SiStrapi />,
         level: "Proficient",
-        pct: 72,
-        color: "rgba(255,165,50,0.3)",
+        pct: 75,
+        color: "#4945ff",
       },
     ],
   },
+
   {
     id: "database",
     label: "Database",
@@ -108,94 +161,24 @@ const categories = [
     skills: [
       {
         name: "MongoDB",
-        icon: "🍃",
-        level: "Expert",
-        pct: 90,
-        color: "rgba(71,162,72,0.35)",
-      },
-      {
-        name: "PostgreSQL",
-        icon: "🐘",
-        level: "Advanced",
-        pct: 84,
-        color: "rgba(51,103,145,0.35)",
-      },
-      {
-        name: "Redis",
-        icon: "🔴",
-        level: "Proficient",
-        pct: 74,
-        color: "rgba(220,56,45,0.3)",
-      },
-      {
-        name: "Prisma",
-        icon: "💎",
-        level: "Advanced",
-        pct: 80,
-        color: "rgba(42,85,153,0.3)",
-      },
-      {
-        name: "MySQL",
-        icon: "🐬",
+        icon: <SiMongodb />,
         level: "Advanced",
         pct: 82,
-        color: "rgba(0,117,143,0.3)",
+        color: "#47a248",
       },
       {
-        name: "Firebase",
-        icon: "🔥",
-        level: "Proficient",
-        pct: 70,
-        color: "rgba(255,196,0,0.3)",
-      },
-    ],
-  },
-  {
-    id: "devops",
-    label: "DevOps & Cloud",
-    icon: "☁️",
-    skills: [
-      {
-        name: "Docker",
-        icon: "🐳",
-        level: "Advanced",
-        pct: 82,
-        color: "rgba(36,150,237,0.35)",
-      },
-      {
-        name: "AWS",
-        icon: "☁️",
-        level: "Proficient",
-        pct: 74,
-        color: "rgba(255,153,0,0.3)",
-      },
-      {
-        name: "CI/CD",
-        icon: "🔄",
+        name: "SQL",
+        icon: <FaDatabase />,
         level: "Advanced",
         pct: 80,
-        color: "rgba(108,242,194,0.3)",
+        color: "#336791",
       },
       {
-        name: "Git",
-        icon: "🌿",
-        level: "Expert",
-        pct: 96,
-        color: "rgba(240,80,50,0.3)",
-      },
-      {
-        name: "Linux",
-        icon: "🐧",
-        level: "Advanced",
-        pct: 83,
-        color: "rgba(200,200,200,0.2)",
-      },
-      {
-        name: "Nginx",
-        icon: "🟩",
+        name: "GraphQL",
+        icon: <GrGraphQl />,
         level: "Proficient",
-        pct: 70,
-        color: "rgba(0,163,0,0.3)",
+        pct: 72,
+        color: "#cc2927",
       },
     ],
   },
@@ -235,7 +218,9 @@ function SkillCard({ skill, index }) {
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
     >
-      <div className="skill-card__icon">{skill.icon}</div>
+      <div className="skill-card__icon" style={{ color: skill.color }}>
+        {skill.icon}
+      </div>
       <div className="skill-card__name">{skill.name}</div>
       <div className="skill-card__bar-track">
         <div
@@ -254,6 +239,8 @@ export default function Skills() {
 
   return (
     <section className="skills" id="skills">
+      <SectionParticles />
+
       <div className="skills__inner">
         <motion.div {...fadeUp(0)}>
           <span className="section-label">What I Know</span>
@@ -261,12 +248,11 @@ export default function Skills() {
             My <span>Skills</span>
           </h2>
           <p className="section-sub">
-            Technologies and tools I work with every day to build modern,
-            production-ready applications.
+            Technologies and tools I work with to build modern, production-ready
+            applications.
           </p>
         </motion.div>
 
-        {/* Tabs */}
         <motion.div className="skills__tabs" {...fadeUp(0.1)}>
           {categories.map((cat) => (
             <button
@@ -280,7 +266,6 @@ export default function Skills() {
           ))}
         </motion.div>
 
-        {/* Grid */}
         <div className="skills__grid">
           {active.skills.map((skill, i) => (
             <SkillCard key={skill.name} skill={skill} index={i} />
