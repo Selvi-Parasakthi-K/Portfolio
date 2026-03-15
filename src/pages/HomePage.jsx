@@ -12,31 +12,26 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Selvi Parasakthi | Frontend Developer</title>
+        <title>Selvi Parasakthi K | Software Engineer</title>
 
         <meta
           name="description"
-          content="Selvi Parasakthi is a Frontend Developer specializing in React, Angular, Tailwind CSS, and modern web applications."
+          content="Selvi Parasakthi K is a Software Engineer specializing in Frontend Development with React, Angular, and modern web technologies."
         />
 
-        <meta
-          name="keywords"
-          content="Selvi Parasakthi, Frontend Developer, React Developer, Angular Developer, Shopify Developer"
-        />
+        <meta property="og:title" content="Selvi Parasakthi K" />
 
-        <meta name="author" content="Selvi Parasakthi" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Selvi Parasakthi | Frontend Developer"
-        />
         <meta
           property="og:description"
-          content="Portfolio of Selvi Parasakthi showcasing projects, skills, and experience."
+          content="Software Engineer specializing in modern web development with React and Angular, focused on building scalable, high-performance applications with clean UI and user-centric design."
         />
+
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://selviparasakthi.netlify.app" />
+        <meta
+          property="og:url"
+          content="https://selviparasakthi.netlify.app/"
+        />
+
         <meta property="og:image" content="/selvi.jpeg" />
       </Helmet>
 
