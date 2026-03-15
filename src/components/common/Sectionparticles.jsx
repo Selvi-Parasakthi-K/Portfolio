@@ -32,8 +32,12 @@ export default function SectionParticles() {
 
     // ── Init all layers ─────────────────────────────────────────────
     function init() {
+      const isMobile = W < 640;
+      const dotCount = isMobile ? 20 : 45;
+      const glitterCount = isMobile ? 15 : 28;
+
       // Network dots
-      dots = Array.from({ length: 45 }, () => ({
+      dots = Array.from({ length: dotCount }, () => ({
         x: Math.random() * W,
         y: Math.random() * H,
         vx: (Math.random() - 0.5) * 0.45,
@@ -44,7 +48,7 @@ export default function SectionParticles() {
       }));
 
       // Glitter stars — each has a phase so they twinkle independently
-      glitter = Array.from({ length: 28 }, () => ({
+      glitter = Array.from({ length: glitterCount }, () => ({
         x: Math.random() * W,
         y: Math.random() * H,
         size: Math.random() * 2.5 + 1,
@@ -149,7 +153,6 @@ export default function SectionParticles() {
       raf = requestAnimationFrame(draw);
     }
 
-    // ── Bootstrap ────────────────────────────────────────────────────
     resize();
     init();
     draw();

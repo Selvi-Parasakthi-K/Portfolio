@@ -7,6 +7,9 @@ export default function ParticlesBg() {
     await loadSlim(engine);
   }, []);
 
+  const isMobile = window.innerWidth < 640;
+  const count = isMobile ? 25 : 60;
+
   return (
     <Particles
       init={particlesInit}
@@ -14,7 +17,7 @@ export default function ParticlesBg() {
         fullScreen: false,
         background: { color: "transparent" },
         particles: {
-          number: { value: 60 },
+          number: { value: count },
           color: { value: "#6cf2c2" },
           opacity: { value: 0.35 },
           size: { value: 2 },
