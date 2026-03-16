@@ -5,6 +5,7 @@
 .contact {
   position: relative;
   padding: var(--section-py) 0;
+  padding-bottom: 1rem;
   overflow: hidden;
 }
 

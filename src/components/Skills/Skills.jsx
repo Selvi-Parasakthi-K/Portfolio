@@ -182,6 +182,42 @@ const categories = [
       },
     ],
   },
+
+  {
+    id: "ai",
+    label: "AI Tools",
+    icon: "🤖",
+    skills: [
+      {
+        name: "OpenAI API",
+        icon: "🧠",
+        level: "Advanced",
+        pct: 80,
+        color: "#10a37f",
+      },
+      {
+        name: "Claude AI",
+        icon: "🤖",
+        level: "Advanced",
+        pct: 78,
+        color: "#d97706",
+      },
+      {
+        name: "Prompt Engineering",
+        icon: "💡",
+        level: "Advanced",
+        pct: 82,
+        color: "#8b5cf6",
+      },
+      {
+        name: "AI API Integration",
+        icon: "🔗",
+        level: "Proficient",
+        pct: 75,
+        color: "#0ea5e9",
+      },
+    ],
+  },
 ];
 
 const fadeUp = (delay = 0) => ({
