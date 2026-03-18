@@ -51,7 +51,7 @@ export default function About() {
                 {" "}
                 React, Redux, Tailwind CSS, and Bootstrap{" "}
               </span>
-              to create scalable and user-friendly interfaces.
+              {" "}to create scalable and user-friendly interfaces.
             </p>
             <p>
               I enjoy transforming ideas into interactive digital experiences by
